@@ -1,10 +1,11 @@
 import React from 'react';
-import JSONDATA from './data.json';
+import JSONDATA from './export.json';
 import { useState } from 'react';
 import './style.css';
 
 function SearchandTable() {
   const [searchName, setSearchName] = useState('');
+  var flag;
   return (
     <div className="table">
       <input
@@ -34,27 +35,29 @@ function SearchandTable() {
       <div className="tbody">
         {JSONDATA.filter((val) => {
           if (searchName == '') {
+            flag=0;
             return val;
           } else if (
-            val['Student Name'].toLowerCase().includes(searchName.toLowerCase())
+            val['StudentName'].toLowerCase().includes(searchName.toLowerCase())
           ) {
+            flag=1;
             return val;
           }
         }).map((val, key) => {
           return (
             <div className="user row" key={key} style={{ display: 'flex' }}>
-              <p>
-                <i>#</i>
+              <p className="Rank">
+                <i>{(flag==0)?val['rank']:val['realrank']}</i>
               </p>
               <p className="stdname" id="stdname">
-                <i>{val['Student Name']}</i>
+                <i>{val['StudentName']}</i>
               </p>
               <section className="track">
                 <p className="track1" id="track1">
-                  <i>{val['# of Skill Badges Completed in Track 1']}</i>
+                  <i>{val['#ofSkillBadgesCompletedinTrack1']}</i>
                 </p>
                 <p className="track2" id="track2">
-                  <i>{val['# of Skill Badges Completed in Track 2']}</i>
+                  <i>{val['#ofSkillBadgesCompletedinTrack2']}</i>
                 </p>
               </section>
             </div>
