@@ -1,15 +1,18 @@
 import React from 'react';
-import './style.css';
+import './preloader.css';
 import logo from './logo.svg';
 
 export default function Preloader() {
   return (
-    <div clasSName="preloader">
-      <div clasSName="logo">
-        <img src={logo} class="svg" alt="Google Developer Student Clubs logo" width='300px'/>
+    <div className="preloader">
+      <div className="logo">
+        <img src={logo} class="svg" alt="Google Developer Student Clubs logo"/>
       </div>
-      <div clasSName="loading">
-        <img src="https://cdn.jsdelivr.net/gh/mofazil17/display-data-in-table-using-react@master/src/Spinner-3.gif" alt="hello"/>
+      <div className="loading">
+        <div className="circle blue"></div>
+        <div className="circle yellow"></div>
+        <div className="circle green"></div>
+        <div className="circle red"></div>
       </div>
     </div>
   );
