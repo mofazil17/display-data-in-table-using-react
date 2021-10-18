@@ -1,6 +1,6 @@
 import React from 'react';
 import './preloader.css';
-import logo from './logo.svg';
+import logo from './logo.png';
 
 export default function Preloader() {
   return (
